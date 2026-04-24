@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -11,26 +11,26 @@
         
         body {
             font-family: 'M PLUS Rounded 1c', sans-serif;
-            background-color: #fffafb; 
+            background-color: #fffaf0; 
             scroll-behavior: smooth;
         }
         .cat-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(255, 182, 193, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(255, 107, 129, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .kawaii-text {
-            background: linear-gradient(to right, #ff7eb3, #ff758c, #ff7eb3);
+            background: linear-gradient(to right, #ff4e91, #ff1a4d, #ff4e91);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
         .loading-spinner {
-            border: 4px solid rgba(255, 182, 193, 0.2);
+            border: 4px solid rgba(255, 26, 77, 0.2);
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border-left-color: #ff7eb3;
+            border-left-color: #ff1a4d;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
@@ -40,35 +40,43 @@
         canvas {
             touch-action: none;
             max-width: 100%;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
         }
         .glass-morphism {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid rgba(255, 26, 77, 0.1);
+        }
+        .score-pop {
+            animation: pop 0.3s ease-out;
+        }
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="text-gray-700">
+<body class="text-gray-800">
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 glass-morphism border-b border-pink-100">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <header class="fixed top-0 w-full z-50 glass-morphism">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold kawaii-text flex items-center gap-2">
                 <i class="fas fa-paw"></i> Meow Paradise
             </h1>
-            <nav class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest text-pink-400">
-                <a href="#charms" class="hover:text-pink-600 transition">魅力</a>
-                <a href="#generator" class="hover:text-pink-600 transition">猫召喚</a>
-                <a href="#game" class="hover:text-pink-600 transition">おやつゲーム</a>
+            <nav class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-widest text-pink-600">
+                <a href="#charms" class="hover:text-pink-800 transition">魅力</a>
+                <a href="#generator" class="hover:text-pink-800 transition">猫召喚</a>
+                <a href="#game" class="hover:text-pink-800 transition">おやつゲーム</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 px-6 bg-gradient-to-b from-pink-50 to-white overflow-hidden">
-        <div class="absolute top-20 left-10 text-pink-200 opacity-50 rotate-12 text-6xl"><i class="fas fa-heart"></i></div>
-        <div class="absolute bottom-20 right-10 text-pink-200 opacity-50 -rotate-12 text-6xl"><i class="fas fa-paw"></i></div>
+    <section class="relative pt-32 pb-20 px-6 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
+        <div class="absolute top-20 left-10 text-pink-300 opacity-40 rotate-12 text-6xl"><i class="fas fa-heart"></i></div>
+        <div class="absolute bottom-20 right-10 text-pink-300 opacity-40 -rotate-12 text-6xl"><i class="fas fa-paw"></i></div>
 
         <div class="container mx-auto flex flex-col lg:flex-row items-center">
             <div class="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left z-10">
@@ -76,28 +84,26 @@
                     世界を救うのは、<br>
                     <span class="kawaii-text drop-shadow-sm">猫の可愛さ</span>だった。
                 </h2>
-                <p class="text-xl text-gray-500 mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     見つめるだけで心がとろける、ふわふわの奇跡。<br>
                     日々の疲れを癒やす「究極の可愛さ」を体験してください。
                 </p>
                 <div class="flex flex-wrap gap-5 justify-center lg:justify-start">
-                    <a href="#generator" class="bg-gradient-to-r from-pink-400 to-rose-400 hover:scale-105 text-white font-bold py-4 px-10 rounded-full transition-all shadow-xl">
+                    <a href="#generator" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:scale-105 text-white font-bold py-4 px-10 rounded-full transition-all shadow-xl">
                         今すぐ猫を召喚
                     </a>
-                    <a href="#game" class="bg-white hover:bg-pink-50 text-pink-500 border-2 border-pink-200 font-bold py-4 px-10 rounded-full transition-all shadow-md">
+                    <a href="#game" class="bg-white hover:bg-pink-100 text-pink-600 border-2 border-pink-400 font-bold py-4 px-10 rounded-full transition-all shadow-md">
                         ゲームで遊ぶ
                     </a>
                 </div>
             </div>
             <div class="lg:w-1/2 flex justify-center relative">
                 <div class="relative w-72 h-72 md:w-[450px] md:h-[450px]">
-                    <!-- Hero Image -->
                     <div class="w-full h-full rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl rotate-3 bg-white">
                         <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="可愛い猫" class="w-full h-full object-cover">
                     </div>
-                    <!-- Updated badge text -->
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg -rotate-12 z-20">
-                        <p class="text-pink-500 font-bold text-sm">かわいさ 1000% ✨</p>
+                    <div class="absolute -bottom-6 -left-6 bg-pink-600 text-white p-4 rounded-2xl shadow-lg -rotate-12 z-20">
+                        <p class="font-bold text-sm">かわいさ 1000% ✨</p>
                     </div>
                 </div>
             </div>
@@ -107,48 +113,48 @@
     <!-- Charms Section -->
     <section id="charms" class="py-24 container mx-auto px-6">
         <div class="text-center mb-16">
-            <span class="text-pink-400 font-bold tracking-widest uppercase text-sm">Features</span>
+            <span class="text-pink-600 font-bold tracking-widest uppercase text-sm">Features</span>
             <h3 class="text-4xl font-bold mt-2">猫のここが「たまらん」</h3>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-pink-50 text-center">
-                <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🐾</div>
-                <h4 class="text-2xl font-bold mb-4 text-pink-500">禁断の肉球</h4>
-                <p class="text-gray-500 leading-relaxed">ぷにぷにとした感触。独特の香ばしい匂い。触らせてくれるのは信頼の証です。</p>
+            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-md border border-orange-100 text-center">
+                <div class="w-20 h-20 bg-pink-200 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🐾</div>
+                <h4 class="text-2xl font-bold mb-4 text-pink-600">禁断の肉球</h4>
+                <p class="text-gray-600 leading-relaxed">ぷにぷにとした感触。独特の香ばしい匂い。触らせてくれるのは信頼の証です。</p>
             </div>
-            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-pink-50 text-center">
-                <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🐱</div>
-                <h4 class="text-2xl font-bold mb-4 text-orange-400">気まぐれな仕草</h4>
-                <p class="text-gray-500 leading-relaxed">呼んでも無視するのに、ふとした時に寄り添ってくる。そのツンデレな距離感が恋を呼びます。</p>
+            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-md border border-orange-100 text-center">
+                <div class="w-20 h-20 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🐱</div>
+                <h4 class="text-2xl font-bold mb-4 text-orange-600">気まぐれな仕草</h4>
+                <p class="text-gray-600 leading-relaxed">呼んでも無視するのに、ふとした時に寄り添ってくる。そのツンデレな距離感が恋を呼びます。</p>
             </div>
-            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-sm border border-pink-50 text-center">
-                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🔊</div>
-                <h4 class="text-2xl font-bold mb-4 text-blue-400">癒やしの重低音</h4>
-                <p class="text-gray-500 leading-relaxed">喉の「ゴロゴロ」音は、副交感神経を優位にし、ストレスを和らげてくれます。</p>
+            <div class="cat-card bg-white p-10 rounded-[2.5rem] shadow-md border border-orange-100 text-center">
+                <div class="w-20 h-20 bg-blue-200 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">🔊</div>
+                <h4 class="text-2xl font-bold mb-4 text-blue-600">癒やしの重低音</h4>
+                <p class="text-gray-600 leading-relaxed">喉の「ゴロゴロ」音は、副交感神経を優位にし、ストレスを和らげてくれます。</p>
             </div>
         </div>
     </section>
 
     <!-- Image Generator Section -->
-    <section id="generator" class="py-24 bg-pink-50/50">
+    <section id="generator" class="py-24 bg-orange-50/50">
         <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto bg-white p-8 md:p-16 rounded-[3rem] shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl text-pink-300"><i class="fas fa-magic"></i></div>
+            <div class="max-w-3xl mx-auto bg-white p-8 md:p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-orange-100">
+                <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl text-pink-500"><i class="fas fa-magic"></i></div>
                 <h3 class="text-3xl font-bold mb-4">癒やしの猫召喚所</h3>
-                <p class="text-gray-500 mb-10">最新のAI魔法で、あなただけの可愛い猫を召喚します。</p>
+                <p class="text-gray-600 mb-10">最新のAI魔法で、あなただけの可愛い猫を召喚します。</p>
                 <div class="flex flex-wrap justify-center gap-4 mb-10">
-                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-8 py-3 rounded-full transition-all font-bold">白猫の子猫</button>
-                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-8 py-3 rounded-full transition-all font-bold">お花の王冠猫</button>
-                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-8 py-3 rounded-full transition-all font-bold">ティーカップ猫</button>
+                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">白猫の子猫</button>
+                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">お花の王冠猫</button>
+                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">ティーカップ猫</button>
                 </div>
-                <div id="imageContainer" class="aspect-square max-w-[450px] mx-auto flex items-center justify-center bg-pink-50 rounded-3xl border-4 border-dashed border-pink-100 overflow-hidden relative shadow-inner">
-                    <div id="placeholderText" class="text-pink-300 flex flex-col items-center p-8">
-                        <div class="text-6xl mb-4 animate-bounce">✨</div>
+                <div id="imageContainer" class="aspect-square max-w-[450px] mx-auto flex items-center justify-center bg-orange-50 rounded-3xl border-4 border-dashed border-orange-200 overflow-hidden relative shadow-inner">
+                    <div id="placeholderText" class="text-orange-300 flex flex-col items-center p-8">
+                        <div class="text-6xl mb-4 animate-bounce text-orange-400">✨</div>
                         <span class="font-bold">上のボタンで召喚！</span>
                     </div>
                     <div id="loadingIndicator" class="hidden flex flex-col items-center">
                         <div class="loading-spinner mb-4"></div>
-                        <p class="text-pink-400 font-bold">可愛い魔法を生成中...</p>
+                        <p class="text-pink-600 font-bold">可愛い魔法を生成中...</p>
                     </div>
                     <img id="generatedImage" class="hidden w-full h-full object-cover" alt="召喚された猫">
                 </div>
@@ -160,16 +166,47 @@
     <section id="game" class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-4xl font-bold mb-4 kawaii-text">おさかなキャッチ！</h3>
-            <p class="mb-10 text-gray-500">猫の手🐾を動かして、おやつをたくさん集めよう！</p>
-            <div class="relative inline-block bg-white p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-50">
-                <div id="game-ui" class="absolute top-10 left-10 text-2xl font-bold text-pink-500">
-                    <i class="fas fa-star mr-2"></i><span id="score">0</span>
+            <p class="mb-4 text-gray-700 font-medium">制限時間は30秒！お魚をたくさん集めてね！</p>
+            <p class="mb-6 text-sm text-pink-600 font-bold bg-pink-100 inline-block px-4 py-2 rounded-lg">🐟 +10点 | ☔️ / 🍋 -20点</p>
+            
+            <div class="relative inline-block bg-white p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-100">
+                <!-- UI for score and timer -->
+                <div class="absolute top-10 left-10 right-10 flex justify-between items-center z-10 px-2">
+                    <div id="game-ui-score" class="text-3xl font-bold text-pink-600 drop-shadow-md bg-white/50 px-3 py-1 rounded-full">
+                        <i class="fas fa-star mr-1"></i><span id="score">0</span>
+                    </div>
+                    <div id="game-ui-timer" class="text-3xl font-bold text-orange-600 drop-shadow-md bg-white/50 px-3 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i><span id="timer">30</span>s
+                    </div>
                 </div>
-                <canvas id="gameCanvas" width="400" height="500" class="rounded-3xl bg-gradient-to-b from-blue-50 to-pink-50"></canvas>
-                <div id="game-overlay" class="absolute inset-0 flex items-center justify-center bg-pink-900/40 rounded-3xl hidden">
-                    <div class="bg-white p-8 rounded-3xl shadow-2xl text-center">
-                        <h4 class="text-2xl font-bold mb-4 text-pink-500">Time's Up!</h4>
-                        <button id="restartBtn" class="bg-pink-500 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-pink-600 transition">もう一度あそぶ</button>
+
+                <!-- Game background -->
+                <canvas id="gameCanvas" width="400" height="500" class="rounded-3xl bg-[#fff9c4]"></canvas>
+                
+                <!-- START OVERLAY -->
+                <div id="start-overlay" class="absolute inset-0 flex items-center justify-center bg-white/80 rounded-3xl z-30">
+                    <div class="text-center p-8">
+                        <div class="text-7xl mb-10">🐈</div>
+                        <button id="startBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition-all text-xl">
+                            スタート！
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GAME OVER OVERLAY -->
+                <div id="game-overlay" class="absolute inset-0 flex items-center justify-center bg-pink-900/60 rounded-3xl hidden z-20">
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-center border-4 border-pink-400 max-w-[85%]">
+                        <h4 class="text-4xl font-bold mb-2 text-pink-600">Time Up!</h4>
+                        <p class="text-2xl mb-8 text-gray-700">最終スコア: <span id="final-score" class="font-bold text-pink-700">0</span>点</p>
+                        
+                        <div class="flex flex-col gap-4">
+                            <button id="restartBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-all text-lg">
+                                もう一度遊ぶ！
+                            </button>
+                            <button id="exitBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-8 py-3 rounded-full font-bold transition-all text-sm border border-gray-300">
+                                終了する (また遊んでね)
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,18 +214,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-pink-50 py-16">
+    <footer class="bg-orange-50 py-16">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold kawaii-text mb-8 flex justify-center items-center gap-2">
                 <i class="fas fa-paw"></i> Meow Paradise
             </h2>
-            <p class="text-pink-400 font-bold mb-6 italic">"Cats leave paw prints on your heart."</p>
-            <div class="flex justify-center gap-8 mb-10 text-3xl text-pink-300">
-                <i class="fab fa-instagram hover:text-pink-500 cursor-pointer transition"></i>
-                <i class="fab fa-twitter hover:text-pink-500 cursor-pointer transition"></i>
-                <i class="fas fa-heart animate-pulse text-rose-400"></i>
+            <p class="text-pink-600 font-bold mb-6 italic">"Cats leave paw prints on your heart."</p>
+            <div class="flex justify-center gap-8 mb-10 text-3xl text-pink-500">
+                <i class="fab fa-instagram hover:text-pink-700 cursor-pointer transition"></i>
+                <i class="fab fa-twitter hover:text-pink-700 cursor-pointer transition"></i>
+                <i class="fas fa-heart animate-pulse text-rose-600"></i>
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2024 Meow Paradise. すべての猫に幸あれ。</p>
+            <p class="text-gray-500 text-sm">&copy; 2024 Meow Paradise. すべての猫に幸あれ。</p>
         </div>
     </footer>
 
@@ -241,52 +278,138 @@
                     } else {
                         loader.classList.add('hidden');
                         placeholder.classList.remove('hidden');
-                        placeholder.innerHTML = `<span class="text-rose-400 font-bold p-4 text-sm">猫さんが隠れてしまいました...もう一度呼んでみて！</span>`;
+                        placeholder.innerHTML = `<span class="text-rose-600 font-bold p-4 text-sm">猫さんが隠れてしまいました...もう一度呼んでみて！</span>`;
                     }
                 }
             };
             fetchWithRetry();
         }
 
+        // --- Game Logic ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const scoreElement = document.getElementById('score');
-        const overlay = document.getElementById('game-overlay');
+        const timerElement = document.getElementById('timer');
+        const finalScoreElement = document.getElementById('final-score');
+        const startOverlay = document.getElementById('start-overlay');
+        const gameOverOverlay = document.getElementById('game-overlay');
+        const startBtn = document.getElementById('startBtn');
         const restartBtn = document.getElementById('restartBtn');
+        const exitBtn = document.getElementById('exitBtn');
 
         let score = 0;
-        let gameActive = true;
+        let timeLeft = 30;
+        let gameActive = false;
         let player = { x: 175, y: 430, width: 60, height: 40 };
-        let snacks = [];
-        const snackEmojis = ['🐟', '🍤', '🍖', '🍬', '✨'];
+        let items = [];
+        let gameInterval;
+        let animationId;
+        
+        const ITEM_TYPES = [
+            { emoji: '🐟', points: 10, probability: 0.7 },
+            { emoji: '☔️', points: -20, probability: 0.15 },
+            { emoji: '🍋', points: -20, probability: 0.15 } // きゅうりをレモンに変更
+        ];
 
-        function createSnack() {
+        function drawEmojiWithOutline(emoji, x, y, size, rotation = 0) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.font = `bold ${size}px serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 12; 
+            ctx.lineJoin = 'round';
+            ctx.strokeText(emoji, 0, 0);
+            
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetY = 2;
+            
+            ctx.fillText(emoji, 0, 0);
+            ctx.restore();
+        }
+
+        function startGame() {
+            score = 0;
+            timeLeft = 30;
+            items = [];
+            gameActive = true;
+            scoreElement.innerText = score;
+            timerElement.innerText = timeLeft;
+            startOverlay.classList.add('hidden');
+            gameOverOverlay.classList.add('hidden');
+            
+            clearInterval(gameInterval);
+            startTimer();
+            update();
+        }
+
+        function exitGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            cancelAnimationFrame(animationId);
+            gameOverOverlay.classList.add('hidden');
+            startOverlay.classList.remove('hidden');
+            
+            // キャンバスをリセット
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            scoreElement.innerText = "0";
+            timerElement.innerText = "30";
+        }
+
+        function startTimer() {
+            gameInterval = setInterval(() => {
+                if (timeLeft > 0 && gameActive) {
+                    timeLeft--;
+                    timerElement.innerText = timeLeft;
+                } else if (timeLeft <= 0) {
+                    showGameOver();
+                }
+            }, 1000);
+        }
+
+        function createItem() {
             if (!gameActive) return;
-            snacks.push({
-                x: Math.random() * (canvas.width - 40) + 20,
-                y: -40,
-                speed: 3 + Math.random() * 4,
-                emoji: snackEmojis[Math.floor(Math.random() * snackEmojis.length)],
-                size: 36,
+            
+            const rand = Math.random();
+            let cumulativeProb = 0;
+            let selectedType = ITEM_TYPES[0];
+
+            for (const type of ITEM_TYPES) {
+                cumulativeProb += type.probability;
+                if (rand < cumulativeProb) {
+                    selectedType = type;
+                    break;
+                }
+            }
+            
+            items.push({
+                x: Math.random() * (canvas.width - 60) + 30,
+                y: -50,
+                speed: 3.5 + Math.random() * 4.5,
+                emoji: selectedType.emoji,
+                points: selectedType.points,
+                size: 48,
                 rotation: Math.random() * Math.PI * 2,
-                rotSpeed: (Math.random() - 0.5) * 0.1
+                rotSpeed: (Math.random() - 0.5) * 0.15
             });
         }
 
         function drawPlayer() {
-            ctx.font = '60px serif';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = 'rgba(255,182,193,0.5)';
-            ctx.fillText('🐾', player.x, player.y + 45);
-            ctx.shadowBlur = 0;
+            drawEmojiWithOutline('🐾', player.x + 30, player.y + 20, 75);
         }
 
         function movePlayer(e) {
+            if (!gameActive) return;
             const rect = canvas.getBoundingClientRect();
             let clientX = e.clientX || (e.touches && e.touches[0].clientX);
             if (clientX !== undefined) {
                 const x = (clientX - rect.left) * (canvas.width / rect.width);
-                player.x = Math.max(0, Math.min(canvas.width - 50, x - 30));
+                player.x = Math.max(0, Math.min(canvas.width - 60, x - 30));
             }
         }
 
@@ -296,46 +419,59 @@
             movePlayer(e);
         }, { passive: false });
 
+        function showGameOver() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            cancelAnimationFrame(animationId);
+            finalScoreElement.innerText = score;
+            gameOverOverlay.classList.remove('hidden');
+        }
+
         function update() {
             if (!gameActive) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            ctx.font = 'bold 28px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('GO! GO! 🐟', canvas.width/2, canvas.height/2);
+
             drawPlayer();
-            for (let i = snacks.length - 1; i >= 0; i--) {
-                let s = snacks[i];
+            
+            for (let i = items.length - 1; i >= 0; i--) {
+                let s = items[i];
                 s.y += s.speed;
                 s.rotation += s.rotSpeed;
-                ctx.save();
-                ctx.translate(s.x, s.y);
-                ctx.rotate(s.rotation);
-                ctx.font = s.size + 'px serif';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(s.emoji, 0, 0);
-                ctx.restore();
+                
+                drawEmojiWithOutline(s.emoji, s.x, s.y, s.size, s.rotation);
+
                 if (s.y + 20 > player.y && s.y - 20 < player.y + 40 && 
-                    s.x + 20 > player.x && s.x - 20 < player.x + 60) {
-                    score += 10;
+                    s.x + 25 > player.x && s.x - 25 < player.x + 60) {
+                    
+                    score += s.points;
                     scoreElement.innerText = score;
-                    snacks.splice(i, 1);
-                } else if (s.y > canvas.height + 50) {
-                    snacks.splice(i, 1);
+                    
+                    scoreElement.parentElement.classList.remove('score-pop');
+                    void scoreElement.parentElement.offsetWidth; 
+                    scoreElement.parentElement.classList.add('score-pop');
+
+                    items.splice(i, 1);
+                } else if (s.y > canvas.height + 60) {
+                    items.splice(i, 1);
                 }
             }
-            if (Math.random() < 0.03) createSnack();
-            requestAnimationFrame(update);
+            
+            if (Math.random() < 0.05) createItem();
+            animationId = requestAnimationFrame(update);
         }
 
-        restartBtn.onclick = () => {
-            score = 0;
-            scoreElement.innerText = score;
-            snacks = [];
-            gameActive = true;
-            overlay.classList.add('hidden');
-            update();
-        };
+        startBtn.onclick = startGame;
+        restartBtn.onclick = startGame;
+        exitBtn.onclick = exitGame;
 
         window.onload = () => {
-            update();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
         };
     </script>
 </body>
