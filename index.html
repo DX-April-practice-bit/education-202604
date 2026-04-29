@@ -1,4 +1,4 @@
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -47,19 +47,16 @@
             backdrop-filter: blur(10px);
             border-bottom: 2px solid rgba(255, 26, 77, 0.1);
         }
-        .score-pop {
-            animation: pop 0.3s ease-out;
-        }
-        @keyframes pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+        #imageContainer img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
         }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Header -->
+    <!-- ヘッダー -->
     <header class="fixed top-0 w-full z-50 glass-morphism">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold kawaii-text flex items-center gap-2">
@@ -73,7 +70,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ヒーローセクション -->
     <section class="relative pt-32 pb-20 px-6 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
         <div class="absolute top-20 left-10 text-pink-300 opacity-40 rotate-12 text-6xl"><i class="fas fa-heart"></i></div>
         <div class="absolute bottom-20 right-10 text-pink-300 opacity-40 -rotate-12 text-6xl"><i class="fas fa-paw"></i></div>
@@ -99,8 +96,9 @@
             </div>
             <div class="lg:w-1/2 flex justify-center relative">
                 <div class="relative w-72 h-72 md:w-[450px] md:h-[450px]">
-                    <div class="w-full h-full rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl rotate-3 bg-white">
-                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="可愛い猫" class="w-full h-full object-cover">
+                    <div class="w-full h-full rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl rotate-3 bg-[#8ecae6]">
+                        <!-- 指定された「水色背景で右手をピーンと上げている猫」のイメージ -->
+                        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&q=80&w=800" alt="右手を伸ばした可愛い子猫" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-6 -left-6 bg-pink-600 text-white p-4 rounded-2xl shadow-lg -rotate-12 z-20">
                         <p class="font-bold text-sm">かわいさ 1000% ✨</p>
@@ -110,7 +108,7 @@
         </div>
     </section>
 
-    <!-- Charms Section -->
+    <!-- 魅力セクション -->
     <section id="charms" class="py-24 container mx-auto px-6">
         <div class="text-center mb-16">
             <span class="text-pink-600 font-bold tracking-widest uppercase text-sm">Features</span>
@@ -135,19 +133,19 @@
         </div>
     </section>
 
-    <!-- Image Generator Section -->
+    <!-- 画像生成セクション -->
     <section id="generator" class="py-24 bg-orange-50/50">
         <div class="container mx-auto px-6 text-center">
-            <div class="max-w-3xl mx-auto bg-white p-8 md:p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-orange-100">
+            <div class="max-w-3xl mx-auto bg-white p-6 md:p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-orange-100">
                 <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl text-pink-500"><i class="fas fa-magic"></i></div>
                 <h3 class="text-3xl font-bold mb-4">癒やしの猫召喚所</h3>
                 <p class="text-gray-600 mb-10">最新のAI魔法で、あなただけの可愛い猫を召喚します。</p>
-                <div class="flex flex-wrap justify-center gap-4 mb-10">
-                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">白猫の子猫</button>
-                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">お花の王冠猫</button>
-                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-8 py-3 rounded-full transition-all font-bold">ティーカップ猫</button>
+                <div class="flex flex-wrap justify-center gap-3 mb-10">
+                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">白猫の子猫</button>
+                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">お花の王冠猫</button>
+                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">ティーカップ猫</button>
                 </div>
-                <div id="imageContainer" class="aspect-square max-w-[450px] mx-auto flex items-center justify-center bg-orange-50 rounded-3xl border-4 border-dashed border-orange-200 overflow-hidden relative shadow-inner">
+                <div id="imageContainer" class="aspect-square w-full max-w-[400px] mx-auto flex items-center justify-center bg-orange-50 rounded-3xl border-4 border-dashed border-orange-200 overflow-hidden relative shadow-inner">
                     <div id="placeholderText" class="text-orange-300 flex flex-col items-center p-8">
                         <div class="text-6xl mb-4 animate-bounce text-orange-400">✨</div>
                         <span class="font-bold">上のボタンで召喚！</span>
@@ -162,28 +160,20 @@
         </div>
     </section>
 
-    <!-- Game Section -->
+    <!-- ゲームセクション -->
     <section id="game" class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-4xl font-bold mb-4 kawaii-text">おさかなキャッチ！</h3>
-            <p class="mb-4 text-gray-700 font-medium">制限時間は30秒！お魚をたくさん集めてね！</p>
-            <p class="mb-6 text-sm text-pink-600 font-bold bg-pink-100 inline-block px-4 py-2 rounded-lg">🐟 +10点 | ☔️ / 🍋 -20点</p>
-            
-            <div class="relative inline-block bg-white p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-100">
-                <!-- UI for score and timer -->
-                <div class="absolute top-10 left-10 right-10 flex justify-between items-center z-10 px-2">
-                    <div id="game-ui-score" class="text-3xl font-bold text-pink-600 drop-shadow-md bg-white/50 px-3 py-1 rounded-full">
+            <div class="relative inline-block bg-white p-4 md:p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-100">
+                <div class="absolute top-8 left-8 right-8 flex justify-between items-center z-10 px-2">
+                    <div class="text-2xl md:text-3xl font-bold text-pink-600 drop-shadow-md bg-white/70 px-3 py-1 rounded-full">
                         <i class="fas fa-star mr-1"></i><span id="score">0</span>
                     </div>
-                    <div id="game-ui-timer" class="text-3xl font-bold text-orange-600 drop-shadow-md bg-white/50 px-3 py-1 rounded-full">
+                    <div class="text-2xl md:text-3xl font-bold text-orange-600 drop-shadow-md bg-white/70 px-3 py-1 rounded-full">
                         <i class="fas fa-clock mr-1"></i><span id="timer">30</span>s
                     </div>
                 </div>
-
-                <!-- Game background -->
-                <canvas id="gameCanvas" width="400" height="500" class="rounded-3xl bg-[#fff9c4]"></canvas>
-                
-                <!-- START OVERLAY -->
+                <canvas id="gameCanvas" width="360" height="480" class="rounded-3xl bg-[#fff9c4]"></canvas>
                 <div id="start-overlay" class="absolute inset-0 flex items-center justify-center bg-white/80 rounded-3xl z-30">
                     <div class="text-center p-8">
                         <div class="text-7xl mb-10">🐈</div>
@@ -192,48 +182,26 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- GAME OVER OVERLAY -->
                 <div id="game-overlay" class="absolute inset-0 flex items-center justify-center bg-pink-900/60 rounded-3xl hidden z-20">
-                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-center border-4 border-pink-400 max-w-[85%]">
-                        <h4 class="text-4xl font-bold mb-2 text-pink-600">Time Up!</h4>
-                        <p class="text-2xl mb-8 text-gray-700">最終スコア: <span id="final-score" class="font-bold text-pink-700">0</span>点</p>
-                        
-                        <div class="flex flex-col gap-4">
-                            <button id="restartBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-all text-lg">
-                                もう一度遊ぶ！
-                            </button>
-                            <button id="exitBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-8 py-3 rounded-full font-bold transition-all text-sm border border-gray-300">
-                                終了する (また遊んでね)
-                            </button>
-                        </div>
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-center border-4 border-pink-400">
+                        <h4 class="text-3xl font-bold mb-2 text-pink-600">Time Up!</h4>
+                        <p class="text-xl mb-8">スコア: <span id="final-score">0</span></p>
+                        <button id="restartBtn" class="bg-pink-500 text-white px-8 py-3 rounded-full font-bold">リトライ</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-orange-50 py-16">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold kawaii-text mb-8 flex justify-center items-center gap-2">
-                <i class="fas fa-paw"></i> Meow Paradise
-            </h2>
-            <p class="text-pink-600 font-bold mb-6 italic">"Cats leave paw prints on your heart."</p>
-            <div class="flex justify-center gap-8 mb-10 text-3xl text-pink-500">
-                <i class="fab fa-instagram hover:text-pink-700 cursor-pointer transition"></i>
-                <i class="fab fa-twitter hover:text-pink-700 cursor-pointer transition"></i>
-                <i class="fas fa-heart animate-pulse text-rose-600"></i>
-            </div>
-            <p class="text-gray-500 text-sm">&copy; 2024 Meow Paradise. すべての猫に幸あれ。</p>
-        </div>
+    <footer class="bg-orange-50 py-16 text-center">
+        <h2 class="text-2xl font-bold kawaii-text mb-4"><i class="fas fa-paw"></i> Meow Paradise</h2>
+        <p class="text-gray-500 text-sm">&copy; 2024 Meow Paradise.</p>
     </footer>
 
     <script>
         const apiKey = ""; 
 
         async function generateCat(promptText) {
-            const container = document.getElementById('imageContainer');
             const placeholder = document.getElementById('placeholderText');
             const loader = document.getElementById('loadingIndicator');
             const imgElement = document.getElementById('generatedImage');
@@ -243,236 +211,80 @@
             imgElement.classList.add('hidden');
 
             const payload = {
-                contents: [{ parts: [{ text: `Masterpiece, best quality, ultra-detailed, highres, ${promptText}, soft fluffy fur texture, adorable expression, warm soft focus lighting` }] }],
+                contents: [{ parts: [{ text: `High quality photo of ${promptText}` }] }],
                 generationConfig: { responseModalities: ['TEXT', 'IMAGE'] }
             };
 
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
 
-            const fetchWithRetry = async (retries = 5, delay = 1000) => {
-                try {
-                    const response = await fetch(endpoint, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) throw new Error('Generation failed');
-
-                    const result = await response.json();
-                    const base64Data = result.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
-                    
-                    if (base64Data) {
-                        imgElement.src = `data:image/png;base64,${base64Data}`;
-                        imgElement.onload = () => {
-                            loader.classList.add('hidden');
-                            imgElement.classList.remove('hidden');
-                        };
-                    } else {
-                        throw new Error('No image in response');
-                    }
-                } catch (error) {
-                    if (retries > 0) {
-                        await new Promise(res => setTimeout(res, delay));
-                        return fetchWithRetry(retries - 1, delay * 2);
-                    } else {
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                const base64Data = result.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+                if (base64Data) {
+                    imgElement.src = `data:image/png;base64,${base64Data}`;
+                    imgElement.onload = () => {
                         loader.classList.add('hidden');
-                        placeholder.classList.remove('hidden');
-                        placeholder.innerHTML = `<span class="text-rose-600 font-bold p-4 text-sm">猫さんが隠れてしまいました...もう一度呼んでみて！</span>`;
-                    }
+                        imgElement.classList.remove('hidden');
+                    };
                 }
-            };
-            fetchWithRetry();
+            } catch (error) {
+                loader.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            }
         }
 
-        // --- Game Logic ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-        const scoreElement = document.getElementById('score');
-        const timerElement = document.getElementById('timer');
-        const finalScoreElement = document.getElementById('final-score');
-        const startOverlay = document.getElementById('start-overlay');
-        const gameOverOverlay = document.getElementById('game-overlay');
-        const startBtn = document.getElementById('startBtn');
-        const restartBtn = document.getElementById('restartBtn');
-        const exitBtn = document.getElementById('exitBtn');
+        let score = 0, timeLeft = 30, gameActive = false, playerX = 150, items = [], gameInterval, animationId;
 
-        let score = 0;
-        let timeLeft = 30;
-        let gameActive = false;
-        let player = { x: 175, y: 430, width: 60, height: 40 };
-        let items = [];
-        let gameInterval;
-        let animationId;
-        
-        const ITEM_TYPES = [
-            { emoji: '🐟', points: 10, probability: 0.7 },
-            { emoji: '☔️', points: -20, probability: 0.15 },
-            { emoji: '🍋', points: -20, probability: 0.15 } // きゅうりをレモンに変更
-        ];
-
-        function drawEmojiWithOutline(emoji, x, y, size, rotation = 0) {
-            ctx.save();
-            ctx.translate(x, y);
-            ctx.rotate(rotation);
-            ctx.font = `bold ${size}px serif`;
+        function drawEmoji(emoji, x, y, size) {
+            ctx.font = `${size}px serif`;
             ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            
-            ctx.strokeStyle = 'white';
-            ctx.lineWidth = 12; 
-            ctx.lineJoin = 'round';
-            ctx.strokeText(emoji, 0, 0);
-            
-            ctx.shadowColor = 'rgba(0,0,0,0.3)';
-            ctx.shadowBlur = 4;
-            ctx.shadowOffsetY = 2;
-            
-            ctx.fillText(emoji, 0, 0);
-            ctx.restore();
+            ctx.fillText(emoji, x, y);
         }
 
         function startGame() {
-            score = 0;
-            timeLeft = 30;
-            items = [];
-            gameActive = true;
-            scoreElement.innerText = score;
-            timerElement.innerText = timeLeft;
-            startOverlay.classList.add('hidden');
-            gameOverOverlay.classList.add('hidden');
-            
+            score = 0; timeLeft = 30; items = []; gameActive = true;
+            document.getElementById('score').innerText = score;
+            document.getElementById('start-overlay').classList.add('hidden');
+            document.getElementById('game-overlay').classList.add('hidden');
             clearInterval(gameInterval);
-            startTimer();
+            gameInterval = setInterval(() => { 
+                timeLeft--; 
+                document.getElementById('timer').innerText = timeLeft;
+                if (timeLeft <= 0) { gameActive = false; document.getElementById('game-overlay').classList.remove('hidden'); document.getElementById('final-score').innerText = score; }
+            }, 1000);
             update();
         }
 
-        function exitGame() {
-            gameActive = false;
-            clearInterval(gameInterval);
-            cancelAnimationFrame(animationId);
-            gameOverOverlay.classList.add('hidden');
-            startOverlay.classList.remove('hidden');
-            
-            // キャンバスをリセット
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawPlayer();
-            scoreElement.innerText = "0";
-            timerElement.innerText = "30";
-        }
-
-        function startTimer() {
-            gameInterval = setInterval(() => {
-                if (timeLeft > 0 && gameActive) {
-                    timeLeft--;
-                    timerElement.innerText = timeLeft;
-                } else if (timeLeft <= 0) {
-                    showGameOver();
-                }
-            }, 1000);
-        }
-
-        function createItem() {
-            if (!gameActive) return;
-            
-            const rand = Math.random();
-            let cumulativeProb = 0;
-            let selectedType = ITEM_TYPES[0];
-
-            for (const type of ITEM_TYPES) {
-                cumulativeProb += type.probability;
-                if (rand < cumulativeProb) {
-                    selectedType = type;
-                    break;
-                }
-            }
-            
-            items.push({
-                x: Math.random() * (canvas.width - 60) + 30,
-                y: -50,
-                speed: 3.5 + Math.random() * 4.5,
-                emoji: selectedType.emoji,
-                points: selectedType.points,
-                size: 48,
-                rotation: Math.random() * Math.PI * 2,
-                rotSpeed: (Math.random() - 0.5) * 0.15
-            });
-        }
-
-        function drawPlayer() {
-            drawEmojiWithOutline('🐾', player.x + 30, player.y + 20, 75);
-        }
-
-        function movePlayer(e) {
-            if (!gameActive) return;
+        canvas.addEventListener('mousemove', (e) => {
             const rect = canvas.getBoundingClientRect();
-            let clientX = e.clientX || (e.touches && e.touches[0].clientX);
-            if (clientX !== undefined) {
-                const x = (clientX - rect.left) * (canvas.width / rect.width);
-                player.x = Math.max(0, Math.min(canvas.width - 60, x - 30));
-            }
-        }
-
-        canvas.addEventListener('mousemove', movePlayer);
-        canvas.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            movePlayer(e);
-        }, { passive: false });
-
-        function showGameOver() {
-            gameActive = false;
-            clearInterval(gameInterval);
-            cancelAnimationFrame(animationId);
-            finalScoreElement.innerText = score;
-            gameOverOverlay.classList.remove('hidden');
-        }
+            playerX = (e.clientX - rect.left) * (canvas.width / rect.width) - 30;
+        });
 
         function update() {
             if (!gameActive) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-            ctx.font = 'bold 28px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('GO! GO! 🐟', canvas.width/2, canvas.height/2);
-
-            drawPlayer();
-            
-            for (let i = items.length - 1; i >= 0; i--) {
-                let s = items[i];
+            drawEmoji('🐾', playerX + 30, 430, 60);
+            items.forEach((s, i) => {
                 s.y += s.speed;
-                s.rotation += s.rotSpeed;
-                
-                drawEmojiWithOutline(s.emoji, s.x, s.y, s.size, s.rotation);
-
-                if (s.y + 20 > player.y && s.y - 20 < player.y + 40 && 
-                    s.x + 25 > player.x && s.x - 25 < player.x + 60) {
-                    
-                    score += s.points;
-                    scoreElement.innerText = score;
-                    
-                    scoreElement.parentElement.classList.remove('score-pop');
-                    void scoreElement.parentElement.offsetWidth; 
-                    scoreElement.parentElement.classList.add('score-pop');
-
-                    items.splice(i, 1);
-                } else if (s.y > canvas.height + 60) {
-                    items.splice(i, 1);
+                drawEmoji(s.emoji, s.x, s.y, 40);
+                if (s.y > 400 && s.y < 450 && s.x > playerX && s.x < playerX + 60) {
+                    score += s.points; document.getElementById('score').innerText = score; items.splice(i, 1);
                 }
-            }
-            
-            if (Math.random() < 0.05) createItem();
+            });
+            if (Math.random() < 0.05) items.push({ x: Math.random() * 300 + 30, y: 0, speed: 4, emoji: Math.random() > 0.3 ? '🐟' : '🍋', points: Math.random() > 0.3 ? 10 : -20 });
             animationId = requestAnimationFrame(update);
         }
 
-        startBtn.onclick = startGame;
-        restartBtn.onclick = startGame;
-        exitBtn.onclick = exitGame;
-
-        window.onload = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawPlayer();
-        };
+        document.getElementById('startBtn').onclick = startGame;
+        document.getElementById('restartBtn').onclick = startGame;
     </script>
 </body>
 </html>
+       
