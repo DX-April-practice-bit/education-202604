@@ -41,6 +41,7 @@
             touch-action: none;
             max-width: 100%;
             filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+            cursor: crosshair;
         }
         .glass-morphism {
             background: rgba(255, 255, 255, 0.9);
@@ -142,10 +143,10 @@
                 <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl text-pink-500"><i class="fas fa-magic"></i></div>
                 <h3 class="text-3xl font-bold mb-4">癒やしの猫召喚所</h3>
                 <p class="text-gray-600 mb-10">最新のAI魔法で、あなただけの可愛い猫を召喚します。</p>
-                <div class="flex flex-wrap justify-center gap-3 mb-10">
-                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">白猫の子猫</button>
-                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">お花の王冠猫</button>
-                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-sm md:text-base">ティーカップ猫</button>
+                <div class="flex flex-col md:flex-row flex-wrap justify-center gap-3 mb-10">
+                    <button onclick="generateCat('a fluffy pure white kitten with blue eyes, soft fur')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-3 rounded-full transition-all font-bold text-sm md:text-base">白猫の子猫</button>
+                    <button onclick="generateCat('a cute cat wearing a flower crown in a garden')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-3 rounded-full transition-all font-bold text-sm md:text-base">お花の王冠猫</button>
+                    <button onclick="generateCat('a tiny kitten sleeping inside a fluffy tea cup')" class="bg-pink-100 hover:bg-pink-200 text-pink-700 px-6 py-3 rounded-full transition-all font-bold text-sm md:text-base">ティーカップ猫</button>
                 </div>
                 <div id="imageContainer" class="aspect-square w-full max-w-[400px] mx-auto flex items-center justify-center bg-orange-50 rounded-3xl border-4 border-dashed border-orange-200 overflow-hidden relative shadow-inner">
                     <div id="placeholderText" class="text-orange-300 flex flex-col items-center p-8">
@@ -166,12 +167,11 @@
     <section id="game" class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-4xl font-bold mb-4 kawaii-text">おさかなキャッチ！</h3>
-            <div class="mb-6 space-y-1">
-                <p class="text-lg text-gray-700 font-bold">30秒でお魚をたくさん集めてね！🐟</p>
-                <p class="text-sm text-pink-500 font-medium italic">ネコちゃんが苦手な☂️や🍋を取ると減点になるから気をつけて！</p>
+            <div class="mb-6">
+                <p class="text-lg text-gray-700 font-bold italic">30秒でお魚をたくさん集めてね！🐟</p>
             </div>
             
-            <div class="relative inline-block bg-white p-4 md:p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-100">
+            <div class="relative inline-block bg-white p-4 md:p-6 rounded-[2.5rem] shadow-2xl border-8 border-pink-100 overflow-hidden">
                 <div class="absolute top-8 left-8 right-8 flex justify-between items-center z-10 px-2">
                     <div class="text-2xl md:text-3xl font-bold text-pink-600 drop-shadow-md bg-white/70 px-3 py-1 rounded-full">
                         <i class="fas fa-star mr-1"></i><span id="score">0</span>
@@ -184,12 +184,20 @@
                 <canvas id="gameCanvas" width="360" height="480" class="rounded-3xl bg-[#fff9c4]"></canvas>
                 
                 <!-- START OVERLAY -->
-                <div id="start-overlay" class="absolute inset-0 flex items-center justify-center bg-white/80 rounded-3xl z-30">
-                    <div class="text-center p-8">
-                        <div class="text-7xl mb-10">🐈</div>
-                        <button id="startBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition-all text-xl">
-                            スタート！
+                <div id="start-overlay" class="absolute inset-0 flex items-center justify-center bg-white/95 rounded-3xl z-30 transition-all duration-500">
+                    <div class="text-center p-8 max-w-sm">
+                        <div class="text-8xl mb-8 animate-bounce">🐈</div>
+                        <h4 class="text-2xl font-bold text-pink-600 mb-6">準備はいい？</h4>
+                        
+                        <button id="startBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-16 py-6 rounded-full font-bold shadow-2xl hover:scale-110 active:scale-95 transition-all text-2xl flex items-center gap-3 mx-auto mb-8">
+                            <i class="fas fa-play"></i> スタート！
                         </button>
+
+                        <div class="bg-pink-50 p-4 rounded-2xl border-2 border-pink-100">
+                            <p class="text-sm text-pink-600 font-bold leading-relaxed">
+                                <i class="fas fa-info-circle mr-1"></i>ネコちゃんが苦手な☂️や🍋を<br>取ると減点になるから気をつけてね！
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -199,14 +207,13 @@
                         <h4 class="text-3xl font-bold mb-2 text-pink-600">ゲーム終了</h4>
                         <p class="text-xl mb-6 text-gray-700 font-bold">スコア: <span id="final-score" class="text-pink-700">0</span>点</p>
                         
-                        <!-- ボタンの上のメッセージ -->
                         <div class="mb-6">
                             <p class="text-lg font-bold text-pink-500">また遊びにきてね。</p>
                         </div>
                         
                         <div class="flex flex-col gap-4">
-                            <button id="restartBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-all text-lg">
-                                もう一度遊ぶ！
+                            <button id="restartBtn" class="bg-gradient-to-r from-pink-500 to-rose-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 active:scale-95 transition-all text-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-redo"></i> もう一度遊ぶ！
                             </button>
                         </div>
                     </div>
@@ -228,10 +235,34 @@
     <script>
         const apiKey = ""; 
 
+        // リトライ機能付きの画像生成関数
+        async function fetchWithRetry(url, options, retries = 5, backoff = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (response.ok) return response;
+                
+                if (retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, backoff));
+                    return fetchWithRetry(url, options, retries - 1, backoff * 2);
+                }
+                throw new Error('再試行回数を超えました');
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, backoff));
+                    return fetchWithRetry(url, options, retries - 1, backoff * 2);
+                }
+                throw error;
+            }
+        }
+
         async function generateCat(promptText) {
             const placeholder = document.getElementById('placeholderText');
             const loader = document.getElementById('loadingIndicator');
             const imgElement = document.getElementById('generatedImage');
+            const container = document.getElementById('imageContainer');
+
+            const oldErrors = container.querySelectorAll('.error-msg');
+            oldErrors.forEach(e => e.remove());
 
             placeholder.classList.add('hidden');
             loader.classList.remove('hidden');
@@ -240,7 +271,7 @@
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
 
             try {
-                const response = await fetch(endpoint, {
+                const response = await fetchWithRetry(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -248,24 +279,32 @@
                         generationConfig: { responseModalities: ['TEXT', 'IMAGE'] }
                     })
                 });
-                if (!response.ok) throw new Error();
+                
                 const result = await response.json();
                 const base64Data = result.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+                
                 if (base64Data) {
                     imgElement.src = `data:image/png;base64,${base64Data}`;
                     imgElement.onload = () => {
                         loader.classList.add('hidden');
                         imgElement.classList.remove('hidden');
                     };
+                } else {
+                    throw new Error('画像データが見つかりません');
                 }
             } catch (e) {
+                console.error(e);
                 loader.classList.add('hidden');
                 placeholder.classList.remove('hidden');
-                const errorMsg = document.createElement('p');
-                errorMsg.className = "text-red-500 text-xs mt-2";
-                errorMsg.innerText = "猫さんが隠れてしまいました...もう一度呼んでみて！";
-                document.getElementById('imageContainer').appendChild(errorMsg);
-                setTimeout(() => errorMsg.remove(), 3000);
+                
+                const errorMsg = document.createElement('div');
+                errorMsg.className = "error-msg absolute inset-0 flex flex-col items-center justify-center bg-white/90 p-4 text-center z-10";
+                errorMsg.innerHTML = `
+                    <p class="text-pink-600 font-bold mb-2">猫さんが隠れてしまいました...</p>
+                    <p class="text-xs text-gray-500 mb-4">通信エラーかもしれません。もう一度呼んでみて！</p>
+                    <button onclick="this.parentElement.remove()" class="text-xs bg-gray-200 px-4 py-2 rounded-full">とじる</button>
+                `;
+                container.appendChild(errorMsg);
             }
         }
 
@@ -388,6 +427,7 @@
 
         startBtn.onclick = startGame;
         restartBtn.onclick = startGame;
+        
         window.onload = () => { drawEmoji('🐾', player.x + 30, player.y + 20, 65); };
     </script>
 </body>
